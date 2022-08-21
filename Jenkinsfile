@@ -12,7 +12,7 @@ pipeline{
         }
       }
       steps {
-        withSonarQubeEnv('Sonar Cloud Space'){
+        withSonarQubeEnv('SonarCloudSpace'){
           sh 'mvn clean install'
         }
       }
