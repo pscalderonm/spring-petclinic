@@ -12,7 +12,7 @@ pipeline{
         }
       }
       steps {
-        withSonarQubeEnv(installationId:'SonarCloudSpace', credentialsId:'sona-cloud-key'){
+        withSonarQubeEnv(installationName:'SonarCloudSpace', credentialsId:'sona-cloud-key'){
           sh 'mvn clean install sonar:sonar'
         }
       }
