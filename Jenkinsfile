@@ -11,8 +11,10 @@ pipeline{
           image 'maven:3.5.0'
         }
       }
-      withSonarQubeEnv(installationName:'SonarCloudSpace', credentialsId:'sona-cloud-key'){
-        sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+      steps{
+        withSonarQubeEnv(installationName:'SonarCloudSpace', credentialsId:'sona-cloud-key'){
+          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+        }
       }
     }
     
