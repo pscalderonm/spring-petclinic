@@ -8,7 +8,7 @@ pipeline{
     stage('Sonar Qube Analysis'){
       agent {
         docker {
-          image 'maven:3.5.0'
+          image 'maven:amazoncorretto'
         }
       }
       steps{
