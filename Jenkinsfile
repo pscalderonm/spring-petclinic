@@ -5,6 +5,18 @@ pipeline{
   agent none
   stages {
     
+    stage('Maven Install') {
+      agent {
+        docker {
+          image 'maven:3.5.0'
+        }
+      }
+      steps {
+        sh 'mvn clean install'
+      }
+    }
+    
+    
     stage('Sonar Qube Analysis'){
       agent {
         docker {
@@ -23,18 +35,6 @@ pipeline{
         timeout(time:1, unit:'HOURS'){
           waitForQualityGate abortPipeline: true
         }
-      }
-    }
-    
-    
-    stage('Maven Install') {
-      agent {
-        docker {
-          image 'maven:3.5.0'
-        }
-      }
-      steps {
-        sh 'mvn clean install'
       }
     }
     
