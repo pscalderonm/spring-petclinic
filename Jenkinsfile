@@ -22,6 +22,7 @@ pipeline{
       agent {
         docker {
           image 'maven:amazoncorretto'
+          args '-v $HOME/.m2:/root/.m2'
         }
       }
       steps{
