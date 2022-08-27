@@ -59,4 +59,10 @@ pipeline{
       }
     }
   }
+  
+  post {
+    always {
+      junit(testResults: 'target/reports/*.xml', allowEmptyResults : true)
+    }
+  }
 }
